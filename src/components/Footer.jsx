@@ -2,7 +2,7 @@ export default function Footer() {
   return (
     <footer className="bg-[#DAE5FA] text-[#454545] py-10">
       <div className="max-w-6xl mx-auto px-4 text-center">
-        <h2 className="text-3xl font-bold">Stay Updated</h2>
+        <h2 className="text-3xl font-bold text-[#071441]">Stay Updated</h2>
         <p className="mt-4">Join our newsletter to stay up-to-date with news, offers, and trends.</p>
         <div className="mt-6">
           <input
