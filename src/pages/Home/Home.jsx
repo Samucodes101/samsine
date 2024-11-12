@@ -1,3 +1,4 @@
+import About from "./About";
 import Blog from "./Blogs";
 import Hero from "./Hero";
 import LogoClouds from "./LogoClouds";
@@ -9,6 +10,7 @@ export default function Home() {
   return (
     <div className="flex flex-col gap-20">
       <Hero />
+      <About />
       <Services />
       <Pricing />
       <Testimonials />
