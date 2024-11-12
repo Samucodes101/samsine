@@ -18,7 +18,7 @@ const Contact = () => {
           <p className="text-lg mb-6">Have any questions or need assistance? We're here to help!</p>
           <a 
             href="mailto:contact@yourdomain.com" 
-            className="inline-block px-8 py-3 bg-blue-600 flex justify-center items-center w-64 text-white font-semibold rounded-md hover:bg-blue-700 transition duration-300"
+            className="inline-block px-8 py-3 bg-blue-600 m-auto flex justify-center items-center w-64 text-white font-semibold rounded-md hover:bg-blue-700 transition duration-300"
           >
             Reach Out Now
           </a>
