@@ -6,7 +6,7 @@ export default function About() {
       <div className="max-w-7xl mx-auto px-6">
         <section className="text-center mb-12">
           <h1 className="text-4xl font-bold text-[#08090B] mb-4">About Us</h1>
-          <p className="text-lg text-gray-600">
+          <p className="text-lg text-[#08090B]">
             We are dedicated to delivering high-quality solutions and
             outstanding service to our customers.
           </p>
@@ -17,7 +17,7 @@ export default function About() {
             <h2 className="text-3xl font-bold text-[#08090B] mb-6">
               Our Mission
             </h2>
-            <p className="text-lg text-gray-600 leading-relaxed">
+            <p className="text-lg text-[#08090B] leading-relaxed">
               Our mission is to innovate and lead in the digital world by
               delivering state-of-the-art solutions. We are driven by our
               passion for excellence and commitment to quality.
