@@ -1,8 +1,8 @@
 export default function Pricing() {
     const plans = [
-      { name: "Silver", price: "$29.99/mo", features: ["3 Projects", "5 GB Storage", "Email Support"], button: "Choose Silver" },
-      { name: "Gold", price: "$39.99/mo", features: ["15 Projects", "30 GB Storage", "24/7 Support"], button: "Choose Gold", isPopular: true },
-      { name: "Platinum", price: "$79.99/mo", features: ["Unlimited Projects", "Unlimited Storage", "Dedicated Support"], button: "Choose Platinum" },
+      { name: "Silver", price: "$29.99/mo", features: ["Powerful Admin Panel", "1 Native Android App", "Multi-Language Support", "Support via E-mail and Phone"], button: "Choose Silver" },
+      { name: "Gold", price: "$39.99/mo", features: ["Powerful Admin Panel", "1 Native Android App", "Multi-Language Support", "Support via E-mail and Phone"], button: "Choose Gold", isPopular: true },
+      { name: "Platinum", price: "$79.99/mo", features: ["Powerful Admin Panel", "1 Native Android App", "Multi-Language Support", "Support via E-mail and Phone"], button: "Choose Platinum" },
     ];
   
     return (
