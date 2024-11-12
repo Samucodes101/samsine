@@ -72,17 +72,17 @@ export default function Services() {
       <h2 className="text-4xl font-bold text-center text-[#0A0A0A] mb-10">
       We Are Offering All Kinds of IT Solutions Services
       </h2>
-      <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto px-16">
+      <div className="grid md:grid-cols-3 gap-12 max-w-6xl mx-auto">
         {services.map((service, index) => (
           <div
             key={index}
-            className="relative bg-white p-6 h-80 rounded-lg shadow-lg hover:bg-gray-200 hover:text-gray-800 transition duration-300"
+            className="relative bg-white p-6 rounded-lg shadow-lg hover:bg-gray-200 hover:text-gray-800 transition duration-300"
           >
-            <div className="text-6xl mb-4 text-blue-800">{service.icon}</div>
+            <div className="text-4xl mb-4 text-blue-600">{service.icon}</div>
             <h3 className="text-xl font-semibold mb-2 text-gray-800">
               {service.title}
             </h3>
-            <p className="text-gray-700 text-sm ">{service.description}</p>
+            <p className="text-gray-700">{service.description}</p>
           </div>
         ))}
       </div>
