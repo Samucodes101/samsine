@@ -22,7 +22,7 @@ export default function About() {
 
           <div className="bg-white rounded-lg shadow-md p-6 w-72 transform transition duration-300 hover:scale-105 hover:shadow-lg">
             <h2 className="text-3xl font-bold mb-4 text-blue-900">Our Values</h2>
-            <ul className="text-gray-800 font-semibold flex flex-col px-4 justify-center space-y-2 list-disc">
+            <ul className="text-gray-800 font-semibold flex flex-col px-4 justify-center space-y-2 list-disc custom-bullet">
               <li>Customer-Centric Solutions</li>
               <li>Integrity and Transparency</li>
               <li>Innovation and Creativity</li>
