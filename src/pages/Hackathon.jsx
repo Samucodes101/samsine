@@ -20,11 +20,11 @@ const Hackathon = () => {
             {/* Breadcrumb */}
             <div className="text-sm text-gray-400 mb-6">
                 <span className="hover:text-white cursor-pointer">Home</span> &gt;{' '}
-                <span className="text-white">Contact Us</span>
+                <span className="text-white">Hackathon</span>
             </div>
 
             {/* Title */}
-            <h1 className="text-5xl font-extrabold mb-8">Contact Us</h1>
+            <h1 className="text-5xl font-extrabold mb-8">Hackathon</h1>
 
             {/* Description */}
             <p className="text-lg text-gray-300 leading-relaxed">

@@ -1,50 +1,66 @@
 import React from 'react';
-import backgroundImage from '../assets/Contact.jpg';
 
 const Contact = () => {
   return (
-        <div className="relative bg-gray-900 text-white min-h-screen">
-        {/* Background Image */}
-        <div className="absolute inset-0">
-            <img
-            src={backgroundImage}
-            alt="Background"
-            className="h-full w-full object-cover"
-            />
-            <div className="absolute inset-0 bg-black bg-opacity-60"></div> {/* Dark overlay */}
+    <div>
+      {/* Main Container for both Let's Talk and Contact Form */}
+      <div className="flex flex-col md:flex-row container mx-auto px-4 py-12 gap-12">
+
+        {/* Let's Talk Section with Blue Gradient Background */}
+        <div className="flex-1 bg-gradient-to-r  from-blue-700 to-blue-300 text-white p-8 rounded-lg shadow-lg">
+          <h3 className="text-3xl font-semibold mb-4">Let's Talk</h3>
+          <p className="text-lg mb-6">Have any questions or need assistance? We're here to help!</p>
+          <a 
+            href="mailto:contact@yourdomain.com" 
+            className="inline-block px-8 py-3 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 transition duration-300"
+          >
+            Reach Out Now
+          </a>
         </div>
 
-        {/* Content */}
-        <div className="relative z-10 flex items-center min-h-screen px-6 lg:px-16">
-            <div className="w-full max-w-2xl bg-black bg-opacity-75 p-10 lg:p-16 rounded-lg">
-            {/* Breadcrumb */}
-            <div className="text-sm text-gray-400 mb-6">
-                <span className="hover:text-white cursor-pointer">Home</span> &gt;{' '}
-                <span className="text-white">Contact Us</span>
+        {/* Contact Form Section */}
+        <div className="flex-1 bg-white p-8 rounded-lg shadow-lg">
+          <h3 className="text-2xl font-semibold text-gray-800 mb-6">We'd love to hear from you!</h3>
+          <form action="#" method="POST">
+            <div className="mb-4">
+              <label htmlFor="name" className="block text-sm font-medium text-gray-600">Your Name</label>
+              <input 
+                type="text" 
+                id="name" 
+                name="name" 
+                className="mt-2 w-full p-3 border border-gray-300 rounded-md" 
+                required 
+              />
             </div>
 
-            {/* Title */}
-            <h1 className="text-5xl font-extrabold mb-8">Contact Us</h1>
-
-            {/* Description */}
-            <p className="text-lg text-gray-300 leading-relaxed">
-                Your gateway to getting in touch with our team. Here, you’ll find
-                all the information you need to reach out to us, including our phone
-                number, email address, and a contact form that you can use to send
-                us a message.
-            </p>
-
-            {/* Additional Placeholder for Content */}
-            <div className="mt-8">
-                <p className="text-lg text-gray-300">
-                We are here to help you with any inquiries or support you may
-                need. Our team is dedicated to providing the best service and
-                ensuring all your questions are answered promptly.
-                </p>
+            <div className="mb-4">
+              <label htmlFor="email" className="block text-sm font-medium text-gray-600">Your Email</label>
+              <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                className="mt-2 w-full p-3 border border-gray-300 rounded-md" 
+                required 
+              />
             </div>
+
+            <div className="mb-6">
+              <label htmlFor="message" className="block text-sm font-medium text-gray-600">Your Message</label>
+              <textarea 
+                id="message" 
+                name="message" 
+                className="mt-2 w-full p-3 border border-gray-300 rounded-md" 
+                rows="5" 
+                required 
+              ></textarea>
             </div>
+
+            <button type="submit" className="w-full py-3 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700">Submit</button>
+          </form>
         </div>
-        </div>
+
+      </div>
+    </div>
   );
 };
 
