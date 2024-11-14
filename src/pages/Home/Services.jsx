@@ -12,80 +12,70 @@ import {
 export default function Services() {
   const services = [
     {
-      icon: <FaShieldAlt />,
+      icon: <FaShieldAlt className="w-12 h-12 text-blue-500" />,
       title: "Cybersecurity",
       description:
         "Our cybersecurity services are designed to protect your digital assets from cyber threats and attacks. We offer comprehensive security solutions, including vulnerability assessments, threat detection, and real-time monitoring to ensure your systems are resilient and secure against evolving risks.",
     },
     {
-      icon: <FaChartLine />,
+      icon: <FaChartLine className="w-12 h-12 text-blue-500" />,
       title: "Analytics",
       description:
-        "Unlock the full potential of your data with our analytics services. We provide advanced data analysis and reporting tools, empowering your business with actionable insights for informed decision-making, optimization, and strategic growth. Turn complex data into valuable insights with us.",
+        "Unlock the full potential of your data with our analytics services. We provide advanced data analysis and reporting tools, empowering your business with actionable insights for informed decision-making, optimization, and strategic growth.",
     },
     {
-      icon: <FaMobile />,
+      icon: <FaMobile className="w-12 h-12 text-blue-500" />,
       title: "Mobile Solutions",
       description:
-        "Enhance your business reach with our custom mobile solutions. We build user-friendly, scalable mobile applications tailored to your specific needs, ensuring seamless functionality across all devices. From concept to launch, our team delivers mobile apps that drive engagement and deliver value to your users.",
-    },
-    {
-      icon: <FaCode />,
-      title: "Software Development",
-      description:
-        "Transforming ideas into reliable, scalable software solutions. We apply agile principles to build robust applications tailored to your business needs, ensuring quality, efficiency, and seamless user experience.",
-    },
-    {
-      icon: <FaCloud />,
-      title: "Cloud & DevOps",
-      description:
-        "Enabling seamless cloud adoption and DevOps practices to streamline your workflows. We offer cloud migrations, infrastructure management, and CI/CD solutions to boost efficiency and scalability.",
-    },
-    {
-      icon: <FaDesktop />,
-      title: "Web Development",
-      description:
-        "Offering full-stack web development services to create dynamic, responsive websites that are visually impactful and optimized for performance across all devices.",
-    },
-    {
-      icon: <FaPalette />,
-      title: "Product & Design",
-      description:
-        "Creating innovative products and designs that prioritize user experience. Our design and product development services focus on crafting intuitive, user-centered solutions that stand out in the market.",
-    },
-    {
-      icon: <FaChartLine />,
-      title: "Analytic Solutions",
-      description:
-        "Providing data analytics services to turn complex data into valuable insights, equipping you with tools for informed, strategic decision-making.",
-    },
-    {
-      icon: <FaDatabase />,
-      title: "Data Center",
-      description:
-        "Ensuring reliable data storage and infrastructure management with secure, scalable solutions for critical business operations.",
+        "Enhance your business reach with our custom mobile solutions. We build user-friendly, scalable mobile applications tailored to your specific needs, ensuring seamless functionality across all devices.",
     },
   ];
 
   return (
-    <div className="bg-gray-100 py-16 px-4">
-      <h2 className="text-4xl font-bold text-center text-[#0A0A0A] mb-10">
-      We Are Offering All Kinds of IT Solutions Services
-      </h2>
-      <div className="grid md:grid-cols-3 gap-12 max-w-6xl mx-auto">
-        {services.map((service, index) => (
-          <div
-            key={index}
-            className="relative bg-white p-6 rounded-lg shadow-lg hover:bg-gray-200 hover:text-gray-800 transition duration-300"
-          >
-            <div className="text-4xl mb-4 text-blue-600">{service.icon}</div>
-            <h3 className="text-xl font-semibold mb-2 text-gray-800">
-              {service.title}
-            </h3>
-            <p className="text-gray-700">{service.description}</p>
+    <div className="bg-black text-white py-16 px-8">
+      <section className="max-w-7xl mx-auto">
+        {/* Text Section */}
+        <div className="mb-16">
+          <h2 className="text-[#b23ae1] uppercase text-lg tracking-wide">
+            About Us
+          </h2>
+          <h1 className="text-4xl md:text-5xl font-bold mt-4 leading-tight">
+            At EDSINE Technologies, we empower Businesses <br />
+            with Innovative Technology Solutions.
+          </h1>
+          <p className="mt-6 text-gray-300 text-lg">
+            Founded with a mission to deliver top-tier IT services, engineering
+            expertise, and consultancy, we cater to small and medium-sized
+            businesses, government agencies, and non-governmental organizations.
+            Our goal is to help organizations thrive in a fast-evolving digital
+            landscape by providing cutting-edge tools and expert guidance.
+          </p>
+          <div className="mt-10 flex space-x-10">
+            <div>
+              <p className="text-6xl font-bold text-orange-500">450+</p>
+              <p className="mt-2 text-gray-400">Happy Clients</p>
+            </div>
+            <div>
+              <p className="text-6xl font-bold text-[#b23ae1]">750+</p>
+              <p className="mt-2 text-gray-400">Projects Delivered</p>
+            </div>
           </div>
-        ))}
-      </div>
+        </div>
+
+        {/* Cards Section */}
+        <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8">
+          {services.map((service, index) => (
+            <div
+              key={index}
+              className="bg-gray-900 p-6 rounded-lg flex flex-col items-start"
+            >
+              {service.icon}
+              <h3 className="text-2xl font-semibold mt-4">{service.title}</h3>
+              <p className="mt-2 text-gray-400">{service.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }

@@ -2,11 +2,12 @@ import { useState, useEffect } from 'react';
 
 export default function LogoClouds() {
   const logos = [
-    'https://edsinetechnologiesltd.com/revamp/wp-content/uploads/2020/12/partner-1-1-1.png',
-    'https://edsinetechnologiesltd.com/revamp/wp-content/uploads/2020/12/partner-21-1-1.png',
-    'https://edsinetechnologiesltd.com/revamp/wp-content/uploads/2020/12/partner-3-1-1.png',
-    'https://edsinetechnologiesltd.com/revamp/wp-content/uploads/2020/12/logo_4-1-1.png',
-    'https://edsinetechnologiesltd.com/revamp/wp-content/uploads/2020/12/logo_5-1-1.png',
+    'https://edsinetechnologiesltd.com/revamp/wp-content/uploads/2024/11/WhatsApp_Image_2024-11-13_at_13.03.34_ed25e81a-removebg-preview.png',
+    'https://edsinetechnologiesltd.com/revamp/wp-content/uploads/2024/11/WhatsApp_Image_2024-11-13_at_13.03.34_09dd32e0-removebg-preview.png',
+    'https://edsinetechnologiesltd.com/revamp/wp-content/uploads/2024/11/IMG-20241113-WA0030-removebg-preview.png',
+    'https://edsinetechnologiesltd.com/revamp/wp-content/uploads/2024/11/IMG-20241113-WA0029-removebg-preview.png',
+    'https://edsinetechnologiesltd.com/revamp/wp-content/uploads/2024/11/IMG-20241113-WA0028-removebg-preview.png',
+    'https://edsinetechnologiesltd.com/revamp/wp-content/uploads/2024/11/IMG-20241113-WA0027-removebg-preview.png',
   ];
 
   const [index, setIndex] = useState(0);
@@ -19,7 +20,7 @@ export default function LogoClouds() {
   }, [logos.length]);
 
   return (
-    <section className="py-16 bg-[#180231]">
+    <section className="py-16 bg-[#0a312c]">
       <div className="max-w-7xl mx-auto text-center">
         <div className="relative flex justify-center items-center h-24 overflow-hidden">
           <div

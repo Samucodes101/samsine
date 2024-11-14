@@ -1,18 +1,34 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Logo from '../assets/edsine_logo.png';
 
 export default function Header() {
   const [navOpen, setNavOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
-    <nav className="bg-whiteBg text-textColor px-4 py-2">
+    <nav
+      className={`fixed top-0 left-0 w-full px-4 py-2 z-50 transition-all duration-300 ${
+        isScrolled ? 'bg-white shadow-md text-black' : 'bg-transparent text-white'
+      }`}
+    >
       <div className="flex justify-between items-center">
-        <img src={Logo} alt="Logo" className="w-28" />
+        <img src={Logo} alt="Logo" className="w-28 ml-12" />
         <div className="md:hidden" onClick={() => setNavOpen(!navOpen)}>
           {/* Mobile menu toggle icon */}
         </div>
-        <ul className="hidden md:flex space-x-4 flex-grow justify-center items-center">
+        <ul className="hidden md:flex space-x-4 flex-grow justify-center items-center ml-48">
           <li className="flex justify-center items-center">
             <Link to="/" className="hover:text-gray-400">Home</Link>
           </li>
@@ -23,7 +39,7 @@ export default function Header() {
           {/* Services Dropdown */}
           <li className="relative flex justify-center items-center group">
             <Link to="/services" className="hover:text-gray-400">Services</Link>
-            <ul className="absolute left-0 hidden group-hover:block bg-white shadow-lg rounded-md mt-2 z-10">
+            <ul className="absolute left-0 hidden group-hover:block bg-white shadow-lg rounded-md mt-2 z-10 text-black">
               <li className="flex justify-center items-center">
                 <Link to="/services/hackathon" className="block px-4 py-2 hover:bg-gray-100">Hackathon</Link>
               </li>
