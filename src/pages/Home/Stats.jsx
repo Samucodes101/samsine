@@ -1,24 +1,25 @@
+import { Link } from 'react-router-dom';
+
+
 export default function Stats() {
   const stats = [
-    { label: "Software Programming", value: "100%", color: "#3B82F6" }, // Dark blue
-    { label: "Data Science", value: "100%", color: "#4B5563" }, // Dark gray
-    { label: "Cyber Security", value: "100%", color: "#D97706" }, // Dark orange
-    { label: "Product Design", value: "100%", color: "#10B981" }, // Dark green
-    { label: "IT Project Management", value: "100%", color: "#F59E0B" }, // Amber
-    { label: "Data Protection Compliance", value: "100%", color: "#6B7280" }, // Gray
-    { label: "Portfolio Development", value: "100%", color: "#9333EA" }, // Purple
+    { label: "Software Programming", value: "100%", color: "#3B82F6" }, 
+    { label: "Data Science", value: "100%", color: "#4B5563" }, 
+    { label: "Cyber Security", value: "100%", color: "#D97706" }, 
+    { label: "Product Design", value: "100%", color: "#10B981" }, 
+    { label: "IT Project Management", value: "100%", color: "#F59E0B" }, 
+    { label: "Data Protection Compliance", value: "100%", color: "#6B7280" }, 
+    { label: "Portfolio Development", value: "100%", color: "#9333EA" }, 
   ];
 
   return (
     <section className="bg-gray-950 p-12 flex justify-center">
       {/* Main container with slight width limitation */}
       <div className="max-w-5xl w-full">
-        {/* Text positioned above stats */}
-        <div className="text-white text-2xl font-bold mb-8 text-center">
-          We offer a variety of training programs, split into key categories to suit different needs and skill levels:
-        </div>
+       
+        
 
-        <div className="flex items-center space-x-12"> {/* Increased space between image and stats */}
+        <div className="flex items-center space-x-12"> 
           {/* Image container */}
           <div className="w-">
             <img
@@ -30,6 +31,9 @@ export default function Stats() {
 
           {/* Stats container */}
           <div className="w-1/2">
+          <div className="text-white text-2xl font-bold mb-8 text-left justify-center">
+          We offer a variety of Training programs On The Most In-demand Skills At Our <span className="text-purple-700">Tech Hub</span> 
+        </div>
             {stats.map((stat, index) => (
               <div key={index} className="mb-6">
                 <div className="flex justify-between items-center">
@@ -52,8 +56,8 @@ export default function Stats() {
 
         {/* Button positioned below stats */}
         <div className="flex justify-center mt-8">
-          <button className="bg-[#881fb2] text-white py-3 px-8 rounded-full hover:bg-orange-700 text-lg font-semibold">
-            Get Started
+          <button className="bg-[#881fb2] text-white font-semibold py-3 px-6 rounded-full shadow-lg hover:opacity-90 transition duration-300">
+            <Link to="/services/techhub">Get Started</Link>
           </button>
         </div>
       </div>
