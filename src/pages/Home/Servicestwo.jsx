@@ -1,4 +1,5 @@
 import { FaCode, FaLaptopCode, FaChartLine, FaBullhorn, FaChalkboardTeacher, FaShieldAlt } from "react-icons/fa";
+import backgroundImage from '../../assets/handshake.jpg';
 
 export default function ServicesSection() {
   const servicesTop = [
@@ -46,28 +47,21 @@ export default function ServicesSection() {
   return (
     <div className="bg-black text-white py-16 px-8">
       <div className="max-w-7xl mx-auto">
-        {/* Header Section */}
+        {/* Services Header Section */}
         <div className="flex justify-between items-center">
           <div>
-            <h4 className="text-[#881fb2] uppercase text-sm tracking-widest mb-2">
-              Services
-            </h4>
-            <h2 className="text-4xl font-bold leading-snug">
-              What Solutions We Provide <br /> to Our Valued Customers
-            </h2>
+            <h4 className="text-[#881fb2] uppercase text-sm tracking-widest mb-2">Services</h4>
+            <h2 className="text-4xl font-bold leading-snug">What Solutions We Provide to Our Valued Customers</h2>
           </div>
           <button className="bg-[#881fb2] text-white font-semibold py-3 px-6 rounded-full shadow-lg hover:opacity-90 transition duration-300">
             Get Started
           </button>
         </div>
 
-        {/* Top Cards Section */}
+        {/* Top Services Section */}
         <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {servicesTop.map((service, index) => (
-            <div
-              key={index}
-              className="bg-gray-900 p-8 rounded-xl shadow-lg relative hover:bg-[#881fb2] transition duration-300"
-            >
+            <div key={index} className="bg-gray-900 p-8 rounded-xl shadow-lg relative hover:bg-[#881fb2] transition duration-300">
               <div className="absolute top-6 right-6 text-6xl font-bold text-gray-700 opacity-10">
                 {String(index + 1).padStart(2, "0")}
               </div>
@@ -78,13 +72,10 @@ export default function ServicesSection() {
           ))}
         </div>
 
-        {/* Bottom Cards Section */}
+        {/* Bottom Services Section */}
         <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {servicesBottom.map((service, index) => (
-            <div
-              key={index}
-              className="bg-gray-900 p-8 rounded-xl shadow-lg relative hover:bg-[#881fb2] transition duration-300"
-            >
+            <div key={index} className="bg-gray-900 p-8 rounded-xl shadow-lg relative hover:bg-[#881fb2] transition duration-300">
               <div className="absolute top-6 right-6 text-6xl font-bold text-gray-700 opacity-10">
                 {String(index + 4).padStart(2, "0")}
               </div>
@@ -93,6 +84,37 @@ export default function ServicesSection() {
               <p className="text-gray-400">{service.description}</p>
             </div>
           ))}
+        </div>
+
+        {/* Why Choose Us Section */}
+        <div className="mt-16 bg-gray-800 p-12 rounded-xl text-white flex items-center flex-col md:flex-row">
+          <div className="w-full md:w-1/3 mb-6 md:mb-0">
+            <img
+              src={backgroundImage}
+              alt="Background"
+              className="h-full w-full object-cover rounded-lg"
+            />
+          </div>
+          <div className="flex-1 md:pl-8">
+            <h3 className="text-3xl font-bold mb-4">Why Choose Us</h3>
+            <p className="text-lg text-gray-300 leading-relaxed">
+            We prioritize a user-centered approach in everything we do. We believe the most effective software solutions are crafted with the end user in mind. 
+            </p>
+            <ul className="mt-8 space-y-6">
+              <li className="flex items-center">
+                <FaBullhorn className="text-yellow-500 w-8 h-8 mr-4" />
+                <span className="font-semibold">First Growing Process</span>
+              </li>
+              <li className="flex items-center">
+                <FaLaptopCode className="text-pink-500 w-8 h-8 mr-4" />
+                <span className="font-semibold">Clean Code</span>
+              </li>
+              <li className="flex items-center">
+                <FaShieldAlt className="text-red-500 w-8 h-8 mr-4" />
+                <span className="font-semibold">Digital Marketing</span>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>

@@ -18,7 +18,7 @@ const TechHub = () => {
         {/* Content */}
         <div className="relative z-10 flex items-center min-h-screen px-6 lg:px-16">
           <div className="w-full max-w-2xl bg-black bg-opacity-75 p-10 lg:p-16 rounded-lg">
-            {/* Breadcrumb */}
+
             <div className="text-sm text-gray-400 mb-6">
               <span className="hover:text-white cursor-pointer">Home</span> &gt;{' '}
               <span className="text-white">Tech Hub</span>
@@ -42,12 +42,12 @@ const TechHub = () => {
 
       {/* Training Programs Section */}
       <div className="bg-[#151515] border border-gray-500">
-        <main className="container mx-auto py-10 max-w-screen-lg">
+        <main className="container mx-auto py-10 max-w-screen-lg mt-64">
           {/* Section Title */}
-          <h1 className="text-4xl text-center text-white font-bold mb-4">
+          <h1 className="text-4xl text-center text-white font-bold mb-11">
             Our Training Programs
           </h1>
-          <p className="text-center text-gray-400 mb-8 text-lg">
+          <p className="text-center text-gray-400 mb-11 text-lg">
             Explore our diverse programs designed to equip you with top-notch skills.
           </p>
 
