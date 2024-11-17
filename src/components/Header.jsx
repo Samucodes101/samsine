@@ -37,14 +37,20 @@ export default function Header() {
           </li>
 
           {/* Services Dropdown */}
-          <li className="relative flex justify-center items-center group">
-            <Link to="/services" className="hover:text-gray-400">Services</Link>
-            <ul className="absolute left-0 hidden group-hover:block bg-white shadow-lg rounded-md mt-2 z-10 text-black">
-              <li className="flex justify-center items-center">
-                <Link to="/services/hackathon" className="block px-4 py-2 hover:bg-gray-100">Hackathon</Link>
+          <li className="relative group">
+            <Link to="/services" className="hover:text-gray-400">
+              Services
+            </Link>
+            <ul className="absolute left-0 hidden group-hover:block bg-white shadow-lg rounded-md mt-2 z-10 text-black transition-all duration-300 ease-in-out">
+              <li>
+                <Link to="/services/hackathon" className="block px-4 py-2 hover:bg-gray-100">
+                  Hackathon
+                </Link>
               </li>
-              <li className="flex justify-center items-center">
-                <Link to="/services/techhub" className="block px-4 py-2 hover:bg-gray-100">Tech Hub</Link>
+              <li>
+                <Link to="/services/techhub" className="block px-4 py-2 hover:bg-gray-100">
+                  Tech Hub
+                </Link>
               </li>
             </ul>
           </li>
@@ -55,13 +61,19 @@ export default function Header() {
         </ul>
       </div>
 
+      {/* Mobile Menu */}
       {navOpen && (
-        <ul className="md:hidden mt-2 space-y-2 text-center">
+        <ul className="md:hidden mt-2 space-y-2 text-center bg-white shadow-lg rounded-md p-4 text-black">
           <li><Link to="/" className="block hover:text-gray-400">Home</Link></li>
           <li><Link to="/about" className="block hover:text-gray-400">About</Link></li>
-          <li>
-            <button className="block w-full text-left hover:text-gray-400">Services</button>
-            <ul className="pl-4 space-y-2 text-center">
+          <li className="relative">
+            <button
+              className="block w-full text-left hover:text-gray-400"
+              onClick={() => setNavOpen(!navOpen)}
+            >
+              Services
+            </button>
+            <ul className="mt-2 space-y-2 pl-4">
               <li><Link to="/services/hackathon" className="block hover:text-gray-400">Hackathon</Link></li>
               <li><Link to="/services/techhub" className="block hover:text-gray-400">Tech Hub</Link></li>
             </ul>

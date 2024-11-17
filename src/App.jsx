@@ -7,6 +7,7 @@ import Services from './pages/Services';
 import Contact from './pages/Contact';
 import Hackathon from './pages/Hackathon';
 import TechHub from './pages/TechHub';
+import TechHubReg from './pages/TechHubReg';
 
 
 
@@ -23,6 +24,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/services/hackathon" element={<Hackathon />} />
             <Route path="/services/techhub" element={<TechHub />} />
+            <Route path="/services/techhub/techhubgegistration" element={<TechHubReg />} />
           </Routes>
         </main>
         <Footer />
