@@ -29,16 +29,20 @@ export default function Services() {
       description:
         "Enhance your business reach with our custom mobile solutions. We build user-friendly, scalable mobile applications tailored to your specific needs, ensuring seamless functionality across all devices.",
     },
+    {
+      icon: <FaCode className="w-12 h-12 text-blue-500" />,
+      title: "Portfolio Development",
+      description:
+        "A Step-by-Step Guide for Tech Professionals. Our portfolio development services help you build a professional, impactful portfolio that showcases your skills, projects, and achievements. Perfect for tech professionals looking to make an impression in the industry.",
+    },
   ];
 
   return (
     <div className="bg-black text-white py-16 px-8">
-      <section className="max-w-7xl mx-auto">
+      <section className="max-w-7xl mx-auto flex flex-col md:flex-row gap-16">
         {/* Text Section */}
-        <div className="mb-16">
-          <h2 className="text-[#b23ae1] uppercase text-lg tracking-wide">
-            About Us
-          </h2>
+        <div className="flex-1 md:w-1/2">
+          <h2 className="text-[#b23ae1] uppercase text-lg tracking-wide">About Us</h2>
           <h1 className="text-4xl md:text-5xl font-bold mt-4 leading-tight">
             At EDSINE Technologies, we empower Businesses <br />
             with Innovative Technology Solutions.
@@ -63,17 +67,34 @@ export default function Services() {
         </div>
 
         {/* Cards Section */}
-        <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8">
-          {services.map((service, index) => (
-            <div
-              key={index}
-              className="bg-gray-900 p-6 rounded-lg flex flex-col items-start"
-            >
-              {service.icon}
-              <h3 className="text-2xl font-semibold mt-4">{service.title}</h3>
-              <p className="mt-2 text-gray-400">{service.description}</p>
-            </div>
-          ))}
+        <div className="flex-1 md:w-1/2 grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {/* First Row of Cards */}
+          <div className="flex flex-col gap-8">
+            {services.slice(0, 2).map((service, index) => (
+              <div
+                key={index}
+                className="bg-gray-900 p-6 rounded-lg flex flex-col items-start"
+              >
+                {service.icon}
+                <h3 className="text-2xl font-semibold mt-4">{service.title}</h3>
+                <p className="mt-2 text-gray-400">{service.description}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Second Row of Cards */}
+          <div className="flex flex-col gap-8">
+            {services.slice(2, 4).map((service, index) => (
+              <div
+                key={index}
+                className="bg-gray-900 p-6 rounded-lg flex flex-col items-start"
+              >
+                {service.icon}
+                <h3 className="text-2xl font-semibold mt-4">{service.title}</h3>
+                <p className="mt-2 text-gray-400">{service.description}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
     </div>
