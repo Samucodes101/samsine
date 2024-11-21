@@ -23,8 +23,8 @@ function App() {
             <Route path="/services" element={<Services />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/services/hackathon" element={<Hackathon />} />
-            <Route path="/services/techhub" element={<TechHub />} />
-            <Route path="/services/techhub/techhubgegistration" element={<TechHubReg />} />
+            <Route path="/techhub" element={<TechHub />} />
+            <Route path="/techhub/techhubgegistration" element={<TechHubReg />} />
           </Routes>
         </main>
         <Footer />

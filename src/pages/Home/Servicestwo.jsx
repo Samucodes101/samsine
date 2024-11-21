@@ -57,7 +57,7 @@ export default function ServicesSection() {
             </h2>
           </div>
           <button className="bg-[#881fb2] text-white font-semibold py-3 px-6 rounded-full shadow-lg hover:bg-[#6f1280] transition duration-300">
-            <Link to="/contact">Get Started</Link>
+            <Link to="/services">Get Started</Link>
           </button>
         </div>
 

@@ -2,9 +2,13 @@ import React, { useState } from 'react';
 import backgroundImage from '../assets/services.jpg';
 import { Link } from 'react-router-dom';
 import Servicestwo from './Home/Servicestwo';
+import { useEffect } from 'react';
 
 const Contact = () => {
-  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
 
   return (
     <div className="bg-black text-white min-h-screen">

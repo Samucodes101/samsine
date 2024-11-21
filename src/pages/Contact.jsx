@@ -1,226 +1,235 @@
-  import React, { useState } from 'react';
-  import backgroundImage from '../assets/contact.jpg';
-  import { Link } from 'react-router-dom';
-  import Map from '../components/map';
+import React, { useState } from 'react';
+import backgroundImage from '../assets/contact.jpg';
+import { Link } from 'react-router-dom';
+import { FaInstagram, FaLinkedinIn, FaWhatsapp } from 'react-icons/fa'; // Correct import
 
-  const Contact = () => {
-    const [formData, setFormData] = useState({
-      name: '',
-      email: '',
-      phonenumber: '',
-      state: '',
-      message: ''
+const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phonenumber: '',
+    service: '', // Updated to store service selection
+    message: '',
+  });
+
+  // Available services in the dropdown
+  const services = [
+    "Web Development",
+    "Software Development",
+    "Enterprise Software Solutions",
+    "IT Consultancy services",
+    "Digital Marketing",
+    "Training Services",
+    "Penetration Testing",
+    "Mobile App Development",
+    "Online Distance Learning/Learning Management Solutions",
+    "Biometric Solutions"
+  ];
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
     });
+  };
 
-    const handleChange = (e) => {
-      const { name, value } = e.target;
-      setFormData({
-        ...formData,
-        [name]: value
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // Add 'source' field to indicate that this form is from the Contact page
+    const formDataWithSource = {
+      ...formData,
+      source: 'contact-page',
+    };
+
+    try {
+      const response = await fetch('http://localhost:5000/send-contact-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formDataWithSource),  // Send the modified data
       });
-    };
 
-    const handleSubmit = async (e) => {
-      e.preventDefault();
+      const data = await response.json();
 
-      try {
-        const response = await fetch('/send-email', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(formData),
+      if (data.success) {
+        alert('Your message has been sent successfully!');
+        setFormData({
+          name: '',
+          email: '',
+          phonenumber: '',
+          service: '',
+          message: '',
         });
-
-        const data = await response.json();
-
-        if (data.success) {
-          alert('Your message has been sent successfully!');
-        } else {
-          alert('There was an issue sending your message. Please try again.');
-        }
-      } catch (error) {
-        console.error('Error sending email:', error);
-        alert('An error occurred. Please try again later.');
+      } else {
+        alert('There was an issue sending your message. Please try again.');
       }
-    };
+    } catch (error) {
+      console.error('Error sending email:', error);
+      alert('An error occurred. Please try again later.');
+    }
+  };
 
-    return (
-      <div className="bg-gray-900 text-white min-h-screen">
-        {/* Contact Us Section with Background */}
-        <div className="relative min-h-screen">
-          {/* Background Image */}
-          <div className="absolute inset-0">
-            <img
-              src={backgroundImage}
-              alt="Background"
-              className="h-full w-full object-cover"
-            />
-            <div className="absolute inset-0 bg-black bg-opacity-60"></div> {/* Dark overlay */}
-          </div>
+  return (
+    <div className="bg-black text-white min-h-screen">
+      {/* Contact Us Section with Background */}
+      <div className="relative min-h-screen">
+        <div className="absolute inset-0">
+          <img
+            src={backgroundImage}
+            alt="Background"
+            className="h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+        </div>
 
-          {/* Content */}
-          <div className="relative z-10 flex items-center min-h-screen px-6 lg:px-16">
-            <div className="w-full max-w-2xl bg-black bg-opacity-75 p-10 lg:p-16 rounded-lg">
-              {/* Breadcrumb */}
-              <div className="text-sm text-gray-400 mb-6">
-                <span className="hover:text-white cursor-pointer"><Link to='/home'>Home</Link></span> &gt;{' '}
-                <span className="text-white">Contact Us</span>
-              </div>
-
-              {/* Title */}
-              <h1 className="text-5xl font-extrabold mb-8 text-white">Contact Us</h1>
-
-              {/* Description */}
-              <p className="text-lg text-gray-300 leading-relaxed">
-                Your gateway to getting in touch with our team. Here, you’ll find
-                all the information you need to reach out to us, including our phone
-                number, email address, and a contact form that you can use to send
-                us a message.
+        <div className="relative z-10 flex items-center min-h-screen px-6 lg:px-16">
+          <div className="w-full max-w-2xl bg-black bg-opacity-75 p-10 lg:p-16 rounded-lg">
+            <div className="text-sm text-gray-400 mb-6">
+              <Link to="/home" className="hover:text-white">
+                Home
+              </Link>{' '}
+              &gt; <span className="text-white">Contact Us</span>
+            </div>
+            <h1 className="text-5xl font-extrabold mb-8 text-white">
+              Contact Us
+            </h1>
+            <p className="text-lg text-gray-300 leading-relaxed">
+              Your gateway to getting in touch with our team. Here, you’ll find
+              all the information you need to reach out to us.
+            </p>
+            <div className="mt-8">
+              <p className="text-lg text-gray-300">
+                We are here to help you with any inquiries or support you may
+                need. Our team is dedicated to providing the best service.
               </p>
-
-              <div className="mt-8">
-                <p className="text-lg text-gray-300">
-                  We are here to help you with any inquiries or support you may
-                  need. Our team is dedicated to providing the best service and
-                  ensuring all your questions are answered promptly.
-                </p>
-              </div>
             </div>
           </div>
         </div>
-
-        {/* Main Container for "Let's Talk" and "Contact Form" */}
-        <div className="flex flex-col md:flex-row container mx-auto px-16 py-12 gap-12">
-          {/* Let's Talk Section */}
-          <div className="flex flex-col py-32 max-w-96 bg-gradient-to-r from-orange-800 to-orange-500 text-white px-4 rounded-lg shadow-lg">
-            <h3 className="text-4xl font-semibold mb-4">Let's Talk</h3>
-            <p className="text-lg mb-6">
-              Have any questions or need assistance? We're here to help!
-            </p>
-            <a
-              href="mailto:contact@yourdomain.com"
-              className="inline-block px-8 py-3 bg-purple-600 m-auto flex justify-center items-center w-64 text-white font-semibold rounded-md hover:bg-purple-700 transition duration-300"
-            >
-              Reach Out Now
-            </a>
-          </div>
-
-          {/* Contact Form Section */}
-          <div className="flex-1 md:w-7/10 bg-white p-8 rounded-lg">
-            <h3 className="text-3xl font-bold text-gray-800 mb-6">
-              We'd love to hear from you!
-            </h3>
-            <form
-              className="flex flex-wrap gap-x-10 gap-y-6"
-              onSubmit={handleSubmit}
-            >
-              <div className="mb-4">
-                <label
-                  htmlFor="name"
-                  className="block text-sm font-medium text-gray-600"
-                >
-                  Your Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  placeholder="Name"
-                  className="mt-2 w-72 p-3 bg-slate-100 rounded-md"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-
-              <div className="mb-4">
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium text-gray-600"
-                >
-                  Your Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  placeholder="Email"
-                  className="mt-2 w-72 p-3 bg-slate-100 rounded-md"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-
-              <div className="mb-4">
-                <label
-                  htmlFor="phonenumber"
-                  className="block text-sm font-medium text-gray-600"
-                >
-                  Your Phone Number
-                </label>
-                <input
-                  type="text"
-                  id="phonenumber"
-                  name="phonenumber"
-                  placeholder="Phone Number"
-                  className="mt-2 w-72 p-3 bg-slate-100 rounded-md"
-                  value={formData.phonenumber}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-
-              <div className="mb-4">
-                <label
-                  htmlFor="state"
-                  className="block text-sm font-medium text-gray-600"
-                >
-                  Your State
-                </label>
-                <input
-                  type="text"
-                  id="state"
-                  name="state"
-                  placeholder="State"
-                  className="mt-2 w-72 p-3 bg-slate-100 rounded-md"
-                  value={formData.state}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-
-              <div className="mb-6">
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-medium text-gray-600"
-                >
-                  Your Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  className="mt-2 w-full p-3 bg-slate-100 rounded-md"
-                  rows="5"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                ></textarea>
-              </div>
-
-              <button
-                type="submit"
-                className="w-64 py-3 bg-gradient-to-r from-purple-800 to-purple-400 text-white font-semibold rounded-md hover:bg-blue-700"
-              >
-                Submit
-              </button>
-            </form>
-          </div>
-        </div>
-        <Map/>
       </div>
-    );
-  };
 
-  export default Contact;
+      <div className="flex flex-col text-white md:flex-row bg-black mt-44 border rounded-md border-gray-700 mb-44 p-8 md:p-16 space-y-8 md:space-y-0 md:space-x-12">
+  {/* Left Section */}
+<div className="md:w-1/2 flex flex-col justify-between">
+  <div className="space-y-6">
+    <h3 className="text-lg font-medium text-gray-500">Let’s Talk</h3>
+    <h1 className="text-6xl font-extrabold text-white">
+      Our Team Is <br /> Always Ready.
+    </h1>
+    <p className="text-gray-400 leading-relaxed">
+      Whether you need help with a Large-scale Project, or you just have a
+      question about a technical issue, our team is here to help.
+    </p>
+  </div>
+
+  {/* Social Media Title */}
+  <h2 className="text-xl font-semibold text-gray-200 mt-60">
+    Reach Out to us on Social Media
+  </h2>
+
+  <div className="flex space-x-6 text-gray-500 mt-2">
+    <a 
+      href="https://www.instagram.com/edsine_technologies/" 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      className="hover:text-pink-500"
+      aria-label="Instagram"
+    >
+      <FaInstagram className="text-3xl" />
+    </a>
+    <a 
+      href="https://www.linkedin.com/company/edsinetechnologies" 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      className="hover:text-blue-700"
+      aria-label="LinkedIn"
+    >
+      <FaLinkedinIn className="text-3xl" />
+    </a>
+    <a 
+      href="https://wa.me/2348068359773" 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      className="hover:text-green-500"
+      aria-label="WhatsApp"
+    >
+      <FaWhatsapp className="text-3xl" />
+    </a>
+  </div>
+</div>
+
+  {/* Right Section (Contact Form) */}
+  <div className="md:w-1/2">
+    <h3 className="text-lg font-medium text-gray-500 mb-8">Contact Form</h3>
+    <form onSubmit={handleSubmit}>
+      <div className="mb-6">
+        <input
+          type="text"
+          name="name"
+          value={formData.name}
+          onChange={handleChange}
+          placeholder="Your Full Name"
+          className="w-full p-4 bg-black text-white border-2 border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500"
+        />
+      </div>
+      <div className="mb-6">
+        <input
+          type="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+          placeholder="Your Email Address"
+          className="w-full p-4 bg-black text-white border-2 border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500"
+        />
+      </div>
+      <div className="mb-6">
+        <input
+          type="tel"
+          name="phonenumber"
+          value={formData.phonenumber}
+          onChange={handleChange}
+          placeholder="Your Phone Number"
+          className="w-full p-4 bg-black text-white border-2 border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500"
+        />
+      </div>
+      <div className="mb-6">
+        <label htmlFor="service" className="block text-gray-400">Service Interested In</label>
+        <select
+          name="service"
+          id="service"
+          value={formData.service}
+          onChange={handleChange}
+          className="w-full p-4 bg-black text-white border-2 border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500"
+        >
+          <option value="">Select a Service</option>
+          {services.map((service, index) => (
+            <option key={index} value={service}>{service}</option>
+          ))}
+        </select>
+      </div>
+      <div className="mb-6">
+        <textarea
+          name="message"
+          value={formData.message}
+          onChange={handleChange}
+          placeholder="Your Message"
+          rows="5"
+          className="w-full p-4 bg-black text-white border-2 border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500"
+        ></textarea>
+      </div>
+      <button
+        type="submit"
+        className="w-full bg-pink-500 text-white py-4 rounded-md hover:bg-pink-700 transition duration-300"
+      >
+        Send Message
+      </button>
+    </form>
+  </div>
+</div>
+    </div>
+  );
+};
+
+export default Contact;

@@ -2,7 +2,7 @@ import React from 'react';
 import backgroundImage from '../assets/services.jpg';
 import { IoIosArrowRoundForward } from 'react-icons/io';
 import { HiMiniBuildingOffice2 } from "react-icons/hi2";
-
+import { useEffect } from 'react';
 import cyber from '../assets/cyber.jpg';
 import data_science from '../assets/data_science.jpg';
 import product_design from '../assets/product_design.jpg';
@@ -12,6 +12,10 @@ import data_protect from '../assets/data_protect.jpg';
 import fullstack_dev from '../assets/fullstack_dev.jpg';
 
 const TechHub = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="bg-black">
       <div className="bg-gray-900 text-white min-h-screen">
@@ -111,13 +115,13 @@ const TechHub = () => {
                   />
                   <h2 className="text-xl font-semibold text-white">{program.title}</h2>
                   <p className="mt-3 text-gray-400">{program.description}</p>
-                  <a
+                  {/* <a
                     href={program.link} 
                     className="mt-4 flex items-center text-left py-2 rounded text-white hover:text-purple-700"
                   >
                     Read More
                     <IoIosArrowRoundForward className="m-5" />
-                  </a>
+                  </a> */}
                 </div>
               ))}
             </section>

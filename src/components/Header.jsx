@@ -24,63 +24,51 @@ export default function Header() {
       }`}
     >
       <div className="flex justify-between items-center">
-        <img src={Logo} alt="Logo" className="w-28 ml-12" />
-        <div className="md:hidden" onClick={() => setNavOpen(!navOpen)}>
-          {/* Mobile menu toggle icon */}
+        <img src={Logo} alt="Logo" className="w-24 ml-4" />
+        <div className="md:hidden mr-4" onClick={() => setNavOpen(!navOpen)}>
+          <span className="text-2xl cursor-pointer">&#9776;</span>
         </div>
         <ul className="hidden md:flex space-x-4 flex-grow justify-center items-center ml-48">
-          <li className="flex justify-center items-center">
-            <Link to="/" className="hover:text-gray-400">Home</Link>
-          </li>
-          <li className="flex justify-center items-center">
-            <Link to="/about" className="hover:text-gray-400">About</Link>
-          </li>
-
-          {/* Services Dropdown */}
-          <li className="relative group">
-            <Link to="/services" className="hover:text-gray-400">
-              Services
-            </Link>
-            <ul className="absolute left-0 hidden group-hover:block bg-white shadow-lg rounded-md mt-2 z-10 text-black transition-all duration-300 ease-in-out">
-              <li>
-                <Link to="/services/hackathon" className="block px-4 py-2 hover:bg-gray-100">
-                  Hackathon
-                </Link>
-              </li>
-              <li>
-                <Link to="/services/techhub" className="block px-4 py-2 hover:bg-gray-100">
-                  Tech Hub
-                </Link>
-              </li>
-            </ul>
-          </li>
-
-          <li className="flex justify-center items-center">
-            <Link to="/contact" className="hover:text-gray-400">Contact</Link>
-          </li>
+          <li><Link to="/" className="hover:text-gray-400">Home</Link></li>
+          <li><Link to="/about" className="hover:text-gray-400">About</Link></li>
+          <li><Link to="/services" className="hover:text-gray-400">Services</Link></li>
+          <li><Link to="/contact" className="hover:text-gray-400">Contact</Link></li>
+          <li><Link to="/techhub" className="hover:text-gray-400 text-purple-500">Tech Hub</Link></li>
         </ul>
       </div>
 
       {/* Mobile Menu */}
+      <div className='justify-end items-end'>
       {navOpen && (
-        <ul className="md:hidden mt-2 space-y-2 text-center bg-white shadow-lg rounded-md p-4 text-black">
-          <li><Link to="/" className="block hover:text-gray-400">Home</Link></li>
-          <li><Link to="/about" className="block hover:text-gray-400">About</Link></li>
-          <li className="relative">
-            <button
-              className="block w-full text-left hover:text-gray-400"
-              onClick={() => setNavOpen(!navOpen)}
-            >
-              Services
-            </button>
-            <ul className="mt-2 space-y-2 pl-4">
-              <li><Link to="/services/hackathon" className="block hover:text-gray-400">Hackathon</Link></li>
-              <li><Link to="/services/techhub" className="block hover:text-gray-400">Tech Hub</Link></li>
-            </ul>
+        <ul className="md:hidden absolute top-0 right-0  mt-16 space-y-2 bg-black border border-gray w-fit shadow-lg rounded-lg p-4 text-white">
+          <li>
+            <Link to="/" className="block py-2 px-4 rounded-lg hover:text-gray-400">
+              Home
+            </Link>
           </li>
-          <li><Link to="/contact" className="block hover:text-gray-400">Contact</Link></li>
+          <li>
+            <Link to="/about" className="block py-2 px-4 rounded-lg hover:text-gray-400">
+              About
+            </Link>
+          </li>
+          <li>
+            <Link to="/services" className="block py-2 px-4 rounded-lg hover:text-gray-400">
+              Services
+            </Link>
+          </li>
+          <li>
+            <Link to="/contact" className="block py-2 px-4 rounded-lg hover:text-gray-400">
+              Contact
+            </Link>
+          </li>
+          <li>
+            <Link to="/techhub" className="block py-2 px-4 rounded-lg hover:text-gray-400 text-purple-500">
+              Tech Hub
+            </Link>
+          </li>
         </ul>
       )}
+      </div>
     </nav>
   );
 }

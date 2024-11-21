@@ -10,16 +10,18 @@ import Servicestwo from "./Servicestwo";
 
 export default function Home() {
   return (
+    
     <div className="flex flex-col gap-20 bg-black">
       <div>
       <Hero />
-      <LogoClouds />
       </div>
       
       {/* <About /> */}
       <Services />
       <Stats/>
       <Servicestwo/>
+      <LogoClouds />
+
 
       {/* <Pricing /> */}
       {/* <Testimonials /> */}

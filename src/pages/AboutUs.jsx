@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import backgroundImage from '../assets/team.jpg';
 import Services from './Home/Services';
 
 const AboutUs = () => {
+  // Scroll to the top on component mount
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="relative bg-gray-900 text-white min-h-screen">
       {/* Background Image */}
